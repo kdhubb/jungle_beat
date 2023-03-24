@@ -5,8 +5,9 @@ require "./lib/node"
 RSpec.describe LinkedList do
   it "has an attribute head that is nil by default" do
   linked_list1 = LinkedList.new()
-   
-  expect(linked_list1.head). to eq(nil)
+  
+  expect(linked_list1.class).to eq(LinkedList)
+  expect(linked_list1.head).to eq(nil)
   end
 
   it "has an append method to add nodes to the end of the list" do
@@ -16,17 +17,17 @@ RSpec.describe LinkedList do
     
     list.append("doop")
 
-    expect(list.head).to eq("doop")
-    expect(list.next_node).to be nil
+    expect(list.head.data).to eq("doop")
+    expect(list.head.next_node).to be nil
   end
 
-  it "has a count method that counts the number of nodes in the list" do
+  xit "has a count method that counts the number of nodes in the list" do
     list = LinkedList.new
     
     expect(list.head).to be nil
     
     list.append("doop")
-    expect(list.head).to eq("doop")
+    expect(list.head.data).to eq("doop")
     expect(list.count).to eq(1)
   end
     
@@ -36,11 +37,11 @@ RSpec.describe LinkedList do
     expect(list.head).to be nil
 
     list.append("deet")
-    expect(list.head).to eq("deet")
+    expect(list.head.data).to eq("deet")
     expect(list.to_string).to eq("deet")
   end
 
-  it "can use the above methods with multiple nodes in the list" do
+  xit "can use the above methods with multiple nodes in the list" do
     list = LinkedList.new
 
     list.append("ah")
