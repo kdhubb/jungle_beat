@@ -39,10 +39,21 @@ RSpec.describe LinkedList do
     expect(list.head).to be nil
 
     list.append("deet")
+    list.append("doop")
+ 
     expect(list.head.data).to eq("deet")
-    expect(list.to_string).to eq("deet")
+    expect(list.to_string).to eq("deet doop")
   end
 
+  it "has a find_tail method that returns the last node" do
+    list = LinkedList.new
+
+    list.append("do")
+    list.append("re")
+    list.append("mi")
+
+    expect(list.find_tail.data).to eq("mi")
+  end
   it "can use the above methods with multiple nodes in the list" do
     list = LinkedList.new
 
@@ -51,7 +62,7 @@ RSpec.describe LinkedList do
     list.append("mi")
     list.append("fa")
     list.append("so")
-
+   
     expect(list.head.data).to eq("do")
     expect(list.to_string).to eq("do re mi fa so")
     expect(list.count).to eq(5)
