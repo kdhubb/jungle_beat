@@ -7,7 +7,7 @@ class LinkedList
   def append(node_data)
     if @head == nil
       @head = Node.new(node_data)
-    else @head.next_node.set_next(node_data)
+    else @head.set_next(node_data)
     end
   end
   def to_string

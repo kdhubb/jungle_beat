@@ -46,14 +46,14 @@ RSpec.describe LinkedList do
   it "can use the above methods with multiple nodes in the list" do
     list = LinkedList.new
 
-    list.append("oh")
-    list.append("ah")
-    list.append("ah")
-    list.append("ah")
-    list.append("ah")
+    list.append("do")
+    list.append("re")
+    list.append("mi")
+    list.append("fa")
+    list.append("so")
 
-    expect(list.head).to eq("oh")
-    expect(list.to_string).to eq("oh ah ah ah ah")
+    expect(list.head.data).to eq("do")
+    expect(list.to_string).to eq("do re mi fa so")
     expect(list.count).to eq(5)
   end
 
