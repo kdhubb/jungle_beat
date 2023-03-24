@@ -21,12 +21,14 @@ RSpec.describe LinkedList do
     expect(list.head.next_node).to be nil
   end
 
-  xit "has a count method that counts the number of nodes in the list" do
+  it "has a count method that counts the number of nodes in the list" do
     list = LinkedList.new
     
     expect(list.head).to be nil
-    
+    expect(list.count).to eq(0)
+
     list.append("doop")
+
     expect(list.head.data).to eq("doop")
     expect(list.count).to eq(1)
   end
@@ -41,14 +43,14 @@ RSpec.describe LinkedList do
     expect(list.to_string).to eq("deet")
   end
 
-  xit "can use the above methods with multiple nodes in the list" do
+  it "can use the above methods with multiple nodes in the list" do
     list = LinkedList.new
 
-    list.append("ah")
-    list.append("ah")
-    list.append("ah")
-    list.append("ah")
     list.append("oh")
+    list.append("ah")
+    list.append("ah")
+    list.append("ah")
+    list.append("ah")
 
     expect(list.head).to eq("oh")
     expect(list.to_string).to eq("oh ah ah ah ah")

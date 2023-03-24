@@ -4,4 +4,7 @@ class Node
     @data = data
     @next_node = next_node
   end
+  def set_next(node_data)
+    @next_node = Node.new(node_data)
+  end
 end
