@@ -84,19 +84,6 @@ class LinkedList
     end
   end
 
-  def find_last_half(index)
-    counter = 0
-    inspection_node = @head
-    until counter == index 
-      inspection_node = inspection_node.next_node
-      counter += 1
-      if inspection_node.next_node == nil
-        break  "reached end of list, try append"
-      end
-    end
-    return inspection_node
-  end
-
   def pop
     length = count 
     pop_index = length - 2
@@ -121,84 +108,3 @@ class LinkedList
   end
 end
 
-
-  # def prepend_node(node_data)
-  #   first_node = Node.new(node_data)
-  #   @head = first_node.set_first(@head)
-  # end
-
-# def insert(index, node_data)
-#   inspection_node = @head
-#   new_node = Node.new(node_data)
-#   if index  == 0
-#     prepend_node(node_data)
-#   else counter = 1
-#     until counter == index
-#       inspection_node = inspection_node.next_node
-#       counter += 1
-#     end
-#     inspection_node.next_node = new_node
-#     until counter == index +1
-#       inspection_node = inspection_node.next_node
-#       counter += 1
-  
-#       new_node.next_node = 
-
-#   end
-# end
-
-# def insert(index, node_data)
-#   if count == 0
-#     prepend_node(node_data)
-#   else 
-#      until count - 1 == index 
-#       count
-#      end
-#       new_node = set_next(node_data)
-#     end
-#   end
-# end
-
-# def traverse
-#   inspection_node = @head
-#   until inspection_node.next_node == nil
-#     inspection_node = inspection_node.next_node
-#   end
-#   return inspection_node
-# end
-
-# def insert(index, node_data)
-#   inspection_node = @head
-#   new_node = Node.new(node_data)
-#   if index  == 0
-#    prepend_node(node_data)
-#   else
-#     counter = -1
-#     until counter == index
-#       inspection_node = inspection_node.next_node
-#       counter += 1
-#     end
-#     if inspection_node.next_node == nil
-#       append(node_data)
-#     else
-#     last_half = inspection_node.next_node
-#     end
-#   end
-# end
-
-    #  elsif index == 1
-    #   last_half = find_last_half(index)
-    #   @head.set_next(node_data)
-    #   append(last_half)
-# last_half = find_last_half(index + 1).next_node
-    #   counter = - 1
-    #   until counter == index 
-    #     inspection_node = inspection_node.next_node
-    #     counter += 1
-    #   end
-    #   if inspection_node.next_node == nil
-    #     append(node_data)
-    #   else
-    #     inspection_node.set_next(node_data)
-    #     append(last_half.data)
-    #  end
