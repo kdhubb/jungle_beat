@@ -58,12 +58,16 @@ class LinkedList
 
   def insert(index, node_data)
     inspection_node = @head
-    new_node = Node.new(node_data)
-     if index == 0
+    if @head == nil
+      @head = Node.new(node_data)
+    elsif index == 0
       prepend_node(node_data)
-     else 
-      last_half = find_last_half(index)
-      counter = -1
+    elsif index == 1
+      @head.set_next(node_data)
+      append(last_half)
+      last_half = find_last_half(index + 1).next_node
+    else
+      counter = 1
       until counter == index 
         inspection_node = inspection_node.next_node
         counter += 1
@@ -71,9 +75,9 @@ class LinkedList
       if inspection_node.next_node == nil
         append(node_data)
       else
-        first_half = inspection_node.set_next(node_data) 
-        first_half.set_next(last_half)
-     end
+        new_node = Node.new(node_data, inspection_node.next_node)
+        inspection_node.change_next(new_node)
+      end
     end
   end
 
@@ -88,6 +92,18 @@ class LinkedList
       end
     end
     return inspection_node
+  end
+
+  def pop
+    length = count 
+    pop_index = length - 2
+    live_count = 0
+    inspection_node = @head
+    until pop_index == live_count
+      inspection_node = inspection_node.next_node
+      live_count += 1
+    end
+    inspection_node.change_next(nil)
   end
 end
 
@@ -155,3 +171,20 @@ end
 #     end
 #   end
 # end
+
+    #  elsif index == 1
+    #   last_half = find_last_half(index)
+    #   @head.set_next(node_data)
+    #   append(last_half)
+# last_half = find_last_half(index + 1).next_node
+    #   counter = - 1
+    #   until counter == index 
+    #     inspection_node = inspection_node.next_node
+    #     counter += 1
+    #   end
+    #   if inspection_node.next_node == nil
+    #     append(node_data)
+    #   else
+    #     inspection_node.set_next(node_data)
+    #     append(last_half.data)
+    #  end

@@ -98,15 +98,60 @@ RSpec.describe LinkedList do
     list.append("la")
     list.append("ti")
     list.append("do")
+    list.append("soo")
 
     expect(list.head.data).to eq("so")
-    expect(list.to_string).to eq("so la ti do")
-    expect(list.find_tail.data).to eq("do")
-    expect(list.count).to eq(4)
+    expect(list.to_string).to eq("so la ti do soo")
+    expect(list.find_tail.data).to eq("soo")
+    expect(list.count).to eq(5)
 
-    list.insert(1, "woo")
+    list.insert(2, "woo")
 
-    expect(list.to_string).to eq("so la woo ti do")
+    expect(list.to_string).to eq("so la woo ti do soo")
+  end
+
+  xit "has a find method" do
+    list = LinkedList.new
+
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+
+    expect(list.find(2, 1)).to eq("shi")
+    expect(list.find(1, 3)).to eq("woo shi shu")
+  end
+
+  xit "had an includes? method" do
+    list = LinkedList.new
+
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+
+    expect(list.includes?("deep")).to be true
+    expect(list.includes?("dep")).to be false
+  end
+
+  xit "has a pop method" do 
+    list = LinkedList.new
+
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+
+    expect(list.to_string).to eq("deep woo shi shu blop")
+
+    list.pop
+    list.pop
+
+    expect(list.to_string).to eq("deep woo shi")
+    expect(list.pop).to eq("shi")
   end
 
 end
