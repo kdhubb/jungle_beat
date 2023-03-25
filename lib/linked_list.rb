@@ -59,18 +59,36 @@ class LinkedList
   def insert(index, node_data)
     inspection_node = @head
     new_node = Node.new(node_data)
-    if index  == 0
-     prepend_node(node_data)
-    else
+     if index == 0
+      prepend_node(node_data)
+     else 
+      last_half = find_last_half(index)
       counter = -1
-      until counter == index
+      until counter == index 
         inspection_node = inspection_node.next_node
         counter += 1
       end
-      inspection_node.next_node = new_node
+      if inspection_node.next_node == nil
+        append(node_data)
+      else
+        first_half = inspection_node.set_next(node_data) 
+        first_half.set_next(last_half)
+     end
     end
   end
 
+  def find_last_half(index)
+    counter = 0
+    inspection_node = @head
+    until counter == index 
+      inspection_node = inspection_node.next_node
+      counter += 1
+      if inspection_node.next_node == nil
+        break  "reached end of list, try append"
+      end
+    end
+    return inspection_node
+  end
 end
 
 
@@ -117,4 +135,23 @@ end
 #     inspection_node = inspection_node.next_node
 #   end
 #   return inspection_node
+# end
+
+# def insert(index, node_data)
+#   inspection_node = @head
+#   new_node = Node.new(node_data)
+#   if index  == 0
+#    prepend_node(node_data)
+#   else
+#     counter = -1
+#     until counter == index
+#       inspection_node = inspection_node.next_node
+#       counter += 1
+#     end
+#     if inspection_node.next_node == nil
+#       append(node_data)
+#     else
+#     last_half = inspection_node.next_node
+#     end
+#   end
 # end
