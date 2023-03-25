@@ -94,20 +94,30 @@ RSpec.describe LinkedList do
   it "had an insert method" do
     list = LinkedList.new
 
+    expect(list.insert(1, "foo")).to eq("List empty, node inserted at index 0")
+
     list.append("so")
     list.append("la")
     list.append("ti")
     list.append("do")
     list.append("soo")
 
-    expect(list.head.data).to eq("so")
-    expect(list.to_string).to eq("so la ti do soo")
+    expect(list.head.data).to eq("foo")
+    expect(list.to_string).to eq("foo so la ti do soo")
     expect(list.find_tail.data).to eq("soo")
-    expect(list.count).to eq(5)
+    expect(list.count).to eq(6)
 
     list.insert(2, "woo")
 
-    expect(list.to_string).to eq("so la woo ti do soo")
+    expect(list.to_string).to eq("foo so woo la ti do soo")
+
+    list.insert(1, "moo")
+    expect(list.to_string).to eq("foo moo so woo la ti do soo")
+
+    list.insert(0, "yo")
+    expect(list.to_string).to eq("yo foo moo so woo la ti do soo")
+
+    expect(list.insert(23, "tee")).to eq("index doesn't exist")
   end
 
   xit "has a find method" do
@@ -136,7 +146,7 @@ RSpec.describe LinkedList do
     expect(list.includes?("dep")).to be false
   end
 
-  xit "has a pop method" do 
+  it "has a pop method" do 
     list = LinkedList.new
 
     list.append("deep")

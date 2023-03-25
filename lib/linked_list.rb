@@ -60,12 +60,15 @@ class LinkedList
     inspection_node = @head
     if @head == nil
       @head = Node.new(node_data)
+      "List empty, node inserted at index 0"
     elsif index == 0
       prepend_node(node_data)
+    elsif index > count - 1
+      return "index doesn't exist"
     elsif index == 1
-      @head.set_next(node_data)
-      append(last_half)
-      last_half = find_last_half(index + 1).next_node
+     last_half = @head.next_node
+     new_node = Node.new(node_data)
+     @head.change_next(new_node).change_next(last_half)
     else
       counter = 1
       until counter == index 
@@ -103,7 +106,9 @@ class LinkedList
       inspection_node = inspection_node.next_node
       live_count += 1
     end
+    popped_node = inspection_node.next_node
     inspection_node.change_next(nil)
+    return popped_node.data
   end
 end
 
