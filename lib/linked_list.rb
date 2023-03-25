@@ -61,9 +61,8 @@ class LinkedList
     new_node = Node.new(node_data)
     if index  == 0
      prepend_node(node_data)
-    elsif find_tail.next_node == nil
-      append(node_data)
-    else counter = -1
+    else
+      counter = -1
       until counter == index
         inspection_node = inspection_node.next_node
         counter += 1
