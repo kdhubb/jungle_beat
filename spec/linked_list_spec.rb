@@ -68,6 +68,47 @@ RSpec.describe LinkedList do
     expect(list.count).to eq(5)
   end
 
+  it "has a prepend method" do
+    list = LinkedList.new
+
+    list.append("so")
+    list.append("la")
+    list.append("ti")
+    list.append("do")
+
+    expect(list.head.data).to eq("so")
+    expect(list.to_string).to eq("so la ti do")
+    expect(list.find_tail.data).to eq("do")
+    expect(list.count).to eq(4)
+
+    list.prepend_node("fa")
+    list.prepend_node("mi")
+    list.prepend_node("re")
+    list.prepend_node("do")
+
+    expect(list.head.data).to eq("do")
+    expect(list.to_string).to eq("do re mi fa so la ti do")
+    expect(list.count).to eq(8)
+  end
+
+  it "had an insert method" do
+    list = LinkedList.new
+
+    list.append("so")
+    list.append("la")
+    list.append("ti")
+    list.append("do")
+
+    expect(list.head.data).to eq("so")
+    expect(list.to_string).to eq("so la ti do")
+    expect(list.find_tail.data).to eq("do")
+    expect(list.count).to eq(4)
+
+    list.insert(1, "woo")
+
+    expect(list.to_string).to eq("so woo la ti do")
+  end
+
 end
 
    
