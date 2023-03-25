@@ -120,7 +120,7 @@ RSpec.describe LinkedList do
     expect(list.insert(23, "tee")).to eq("index doesn't exist")
   end
 
-  xit "has a find method" do
+  it "has a find method" do
     list = LinkedList.new
 
     list.append("deep")
@@ -133,7 +133,7 @@ RSpec.describe LinkedList do
     expect(list.find(1, 3)).to eq("woo shi shu")
   end
 
-  xit "had an includes? method" do
+  it "had an includes? method" do
     list = LinkedList.new
 
     list.append("deep")
@@ -144,6 +144,7 @@ RSpec.describe LinkedList do
 
     expect(list.includes?("deep")).to be true
     expect(list.includes?("dep")).to be false
+    expect(list.includes?("shi")).to be true
   end
 
   it "has a pop method" do 

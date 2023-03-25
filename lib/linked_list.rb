@@ -110,6 +110,15 @@ class LinkedList
     inspection_node.change_next(nil)
     return popped_node.data
   end
+
+  def find(index, quantity)
+      data_arr = to_string.split(" ")
+      return data_arr[index, quantity].join(" ")
+  end
+  def includes?(data)
+    data_arr = to_string.split(" ")
+    return data_arr.include?(data)
+  end
 end
 
 
