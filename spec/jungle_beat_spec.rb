@@ -31,5 +31,17 @@ RSpec.describe JungleBeat do
     expect(jb.list.head.next_node.data).to eq("do")
     expect(jb.list.to_string).to eq("doop do re mi")
   end
-  it "has a count method"
+  it "has a count method" do 
+    jb = JungleBeat.new()
+
+    jb.append("do re mi")
+    
+    expect(jb.list.to_string).to eq("do re mi")
+
+    expect(jb.count).to eq(3)
+
+    jb.list.prepend_node("boop")
+
+    expect(jb.count).to eq(4)
+  end
 end

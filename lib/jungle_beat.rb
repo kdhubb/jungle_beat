@@ -10,9 +10,10 @@ class JungleBeat
   @list.append(datum) end
   end
 
+  def count
+    node_data = @list.to_string.split(" ")
+    node_data.count
+  end
+
 end
 
- # def new_song(name)
-  #   name = LinkedList.new
-  #   @list = name
-  # end
