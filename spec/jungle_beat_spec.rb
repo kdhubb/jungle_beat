@@ -9,12 +9,8 @@ RSpec.describe JungleBeat do
     expect(jb).to be_a JungleBeat
   end
 
-  xit "instantiates a list" do
+  it "instantiates a list" do
     jb = JungleBeat.new()
-
-    list = jb.list 
-
-    expect(list).to be_a LinkedList
 
     expect(jb.list).to be_a LinkedList
   end
@@ -32,18 +28,19 @@ RSpec.describe JungleBeat do
     expect(jb.list.to_string).to eq("doop soup shoop")
   end
 
-  xit "has a count method" do 
+  it "has a count method" do 
     jb = JungleBeat.new()
 
-    jb.append("doop")
+    jb.append("doop bubbles bubbly doop")
     
-    expect(jb.list.to_string).to eq("do re mi")
-
-    expect(jb.count).to eq(3)
-
-    jb.list.prepend_node("boop")
+    expect(jb.list.to_string).to eq("doop bubbles bubbly doop")
 
     expect(jb.count).to eq(4)
+
+    jb.list.prepend_node("doop")
+
+    expect(jb.list.head.data).to eq("doop")
+    expect(jb.count).to eq(5)
   end
 
   it "has a play method" do
@@ -54,23 +51,23 @@ RSpec.describe JungleBeat do
     expect(jb.play).not_to be nil
   end
 
-  xit "has an all method" do
+  it "has an all method" do
     jb = JungleBeat.new()
 
-    jb.append("do re mi fa so la ti do")
+    jb.append("boop shoop loop bubbles pop")
 
-    expect(jb.all).to eq("do re mi fa so la ti do")
+    expect(jb.all).to eq("boop shoop loop bubbles pop")
   end
 
-  xit "the append method returns the number of nodes appended" do
+  it "the append method returns the number of nodes appended" do
     jb = JungleBeat.new()
      
-    jb.append("woo")
+    jb.append("shoop")
 
-    expect(jb.append("yo")).to eq(1)
+    expect(jb.append("scoop")).to eq(1)
 
     expect(jb.append("Mississippi")).to eq(0)
-    expect(jb.all).to eq("woo yo")
+    expect(jb.all).to eq("shoop scoop")
     expect(jb.count).to eq(2)
   end
 

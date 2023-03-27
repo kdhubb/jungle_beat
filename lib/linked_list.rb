@@ -14,7 +14,7 @@ class LinkedList
         inspection_node = inspection_node.next_node 
         strings << inspection_node.data
       end
-      return strings.join(" ")
+    return strings.join(" ")
     end
   end
 
@@ -28,7 +28,7 @@ class LinkedList
         inspection_node = inspection_node.next_node
         counter += 1
       end
-      return counter
+    return counter
     end
   end
 
@@ -40,7 +40,7 @@ class LinkedList
       until inspection_node.next_node == nil
         inspection_node = inspection_node.next_node
       end
-      return inspection_node
+    return inspection_node
     end
   end
 
@@ -99,8 +99,8 @@ class LinkedList
   end
 
   def find(index, quantity)
-      data_arr = to_string.split(" ")
-      return data_arr[index, quantity].join(" ")
+    data_arr = to_string.split(" ")
+    return data_arr[index, quantity].join(" ")
   end
   def includes?(data)
     data_arr = to_string.split(" ")
