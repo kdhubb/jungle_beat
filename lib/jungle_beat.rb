@@ -10,13 +10,10 @@ class JungleBeat
   def append(node_datums)
     node_data = node_datums.split(" ")
     keep = []
-    toss = []
     node_data.each  do |datum|
       if @accepted_beats.include?("#{datum}") == true
         keep << datum
-      else  
-        toss << datum
-      end 
+      end
     end
     keep.each do |keeper|
       @list.append(keeper) 
@@ -27,13 +24,10 @@ class JungleBeat
   def prepend_beat(node_datums)
     node_data = node_datums.split(" ")
     keep = []
-    toss = []
     node_data.each  do |datum|
       if @accepted_beats.include?("#{datum}") == true
         keep << datum
-      else  
-        toss << datum
-      end 
+      end
     end
     keep.each do |keeper|
       @list.prepend_node(keeper) 
