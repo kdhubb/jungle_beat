@@ -2,6 +2,7 @@ class JungleBeat
   attr_reader :list, :rate, :voice
   def initialize()
     @list = LinkedList.new
+    # These are the best beats!
     @accepted_beats = ["bubbles", "bubbly", "go", "boop", "doop", "scoop", "shoop", "woop", "coop", "hoop", "goop", "zoup", "soup", "loop", "pop"]
     @rate = 500
     @voice = "Bubbles"
