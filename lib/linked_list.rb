@@ -64,7 +64,7 @@ class LinkedList
     elsif index == 0
       prepend_node(node_data)
     elsif index > count - 1
-      return "index doesn't exist"
+      "index doesn't exist"
     elsif index == 1
      last_half = @head.next_node
      new_node = Node.new(node_data)
