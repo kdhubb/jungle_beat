@@ -4,7 +4,7 @@ class JungleBeat
     @list = LinkedList.new
     # These are the best beats!
     @accepted_beats = ["bubbles", "bubbly", "go", "boop", "doop", "scoop", "shoop", "woop", "coop", "hoop", "goop", "zoup", "soup", "loop", "pop"]
-    @rate = 500
+    @rate = 100
     @voice = "Bubbles"
   end
 
@@ -19,26 +19,23 @@ class JungleBeat
     keep.each do |keeper|
       @list.append(keeper) 
     end
-    return keep.count
+    keep.count
   end
 
   def prepend_beat(node_datums)
     node_data = node_datums.split(" ")
     keep = []
     node_data.each  do |datum|
-      if @accepted_beats.include?("#{datum}") == true
-        keep << datum
-      end
+      keep << datum if @accepted_beats.include?("#{datum}")
     end
     keep.each do |keeper|
       @list.prepend_node(keeper) 
     end
-    return keep.count
+    keep.count
   end
 
   def count
-    node_data = @list.to_string.split(" ")
-    node_data.count
+    @list.to_string.split(" ").count
   end
 
   def play
