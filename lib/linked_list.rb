@@ -14,7 +14,7 @@ class LinkedList
         inspection_node = inspection_node.next_node 
         strings << inspection_node.data
       end
-    return strings.join(" ")
+     strings.join(" ")
     end
   end
 
@@ -28,7 +28,7 @@ class LinkedList
         inspection_node = inspection_node.next_node
         counter += 1
       end
-    return counter
+     counter
     end
   end
 
@@ -40,7 +40,7 @@ class LinkedList
       until inspection_node.next_node == nil
         inspection_node = inspection_node.next_node
       end
-    return inspection_node
+     inspection_node
     end
   end
 
