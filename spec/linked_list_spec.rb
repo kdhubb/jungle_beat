@@ -71,7 +71,7 @@ RSpec.describe LinkedList do
   it "has a prepend method" do
     list = LinkedList.new
 
-    list.append("so")
+    list.prepend_node("so")
     list.append("la")
     list.append("ti")
     list.append("do")

@@ -14,7 +14,7 @@ class LinkedList
         inspection_node = inspection_node.next_node 
         strings << inspection_node.data
       end
-     strings.join(" ")
+      strings.join(" ")
     end
   end
 
@@ -28,7 +28,7 @@ class LinkedList
         inspection_node = inspection_node.next_node
         counter += 1
       end
-     counter
+      counter
     end
   end
 
@@ -40,7 +40,7 @@ class LinkedList
       until inspection_node.next_node == nil
         inspection_node = inspection_node.next_node
       end
-     inspection_node
+      inspection_node
     end
   end
 
@@ -53,7 +53,7 @@ class LinkedList
   end
 
   def prepend_node(node_data)
-   @head = Node.new(node_data, @head)
+    @head = Node.new(node_data, @head)
   end
 
   def insert(index, node_data)
@@ -66,9 +66,9 @@ class LinkedList
     elsif index > count - 1
       "index doesn't exist"
     elsif index == 1
-     last_half = @head.next_node
-     new_node = Node.new(node_data)
-     @head.change_next(new_node).change_next(last_half)
+      last_half = @head.next_node
+      new_node = Node.new(node_data)
+      @head.change_next(new_node).change_next(last_half)
     else
       counter = 1
       until counter == index 
@@ -85,8 +85,7 @@ class LinkedList
   end
 
   def pop
-    length = count 
-    pop_index = length - 2
+    pop_index = count - 2
     live_count = 0
     inspection_node = @head
     until pop_index == live_count

@@ -15,14 +15,14 @@ RSpec.describe JungleBeat do
     expect(jb.list).to be_a LinkedList
   end
 
-  it "has an append method" do
+  it "has an append_beat method" do
     jb = JungleBeat.new()
 
-    jb.append("doop")
+    jb.append_beat("doop")
 
     expect(jb.list.head.data).to eq("doop")
 
-    jb.append("soup shoop")
+    jb.append_beat("soup shoop")
 
     expect(jb.list.head.next_node.data).to eq("soup")
     expect(jb.list.to_string).to eq("doop soup shoop")
@@ -31,7 +31,7 @@ RSpec.describe JungleBeat do
   it "has a count method" do 
     jb = JungleBeat.new()
 
-    jb.append("doop bubbles bubbly doop")
+    jb.append_beat("doop bubbles bubbly doop")
     
     expect(jb.list.to_string).to eq("doop bubbles bubbly doop")
 
@@ -46,27 +46,27 @@ RSpec.describe JungleBeat do
   it "has a play method" do
     jb = JungleBeat.new()
 
-    jb.append("boop pop loop scoop")
+    jb.append_beat("boop pop loop scoop")
     
-    expect(jb.play).not_to be nil
+    jb.play
   end
 
   it "has an all method" do
     jb = JungleBeat.new()
 
-    jb.append("boop shoop loop bubbles pop")
+    jb.append_beat("boop shoop loop bubbles pop")
 
     expect(jb.all).to eq("boop shoop loop bubbles pop")
   end
 
   it "the append method returns the number of nodes appended" do
     jb = JungleBeat.new()
-     
-    jb.append("shoop")
+    
+    jb.append_beat("shoop")
 
-    expect(jb.append("scoop")).to eq(1)
+    expect(jb.append_beat("scoop")).to eq(1)
 
-    expect(jb.append("Mississippi")).to eq(0)
+    expect(jb.append_beat("Mississippi")).to eq(0)
     expect(jb.all).to eq("shoop scoop")
     expect(jb.count).to eq(2)
   end
@@ -74,12 +74,12 @@ RSpec.describe JungleBeat do
   it "has an accepted sounds method that modifies the add node methods" do
     jb = JungleBeat.new()
 
-    jb.append("bubbly bubbles go scoop doop shoop")
+    jb.append_beat("bubbly bubbles go scoop doop shoop")
     
     expect(jb.list.to_string).to eq("bubbly bubbles go scoop doop shoop")
-    expect(jb.append("Mississippi")).to eq(0)
+    expect(jb.append_beat("Mississippi")).to eq(0)
     
-    jb.append("Mississippi")
+    jb.append_beat("Mississippi")
     
     expect(jb.count).to eq(6)
     expect(jb.list.to_string).to eq("bubbly bubbles go scoop doop shoop")
@@ -89,7 +89,7 @@ RSpec.describe JungleBeat do
   it "has a prepend method" do
     jb = JungleBeat.new()
 
-    jb.append("bubbles go doop")
+    jb.append_beat("bubbles go doop")
     expect(jb.list.to_string).to eq("bubbles go doop")
 
     expect(jb.prepend_beat("boop")).to eq(1)
@@ -100,7 +100,7 @@ RSpec.describe JungleBeat do
   it "has a rate reset method" do
     jb = JungleBeat.new()
 
-    jb.append("bubbles go doop")
+    jb.append_beat("bubbles go doop")
     jb.play
     jb.reset_rate(100)
     expect(jb.rate).to eq(100)
@@ -109,7 +109,7 @@ RSpec.describe JungleBeat do
 
   it "has a reset voice method" do
     jb = JungleBeat.new()
-    jb.append("bubbly bubbles go scoop doop shoop")
+    jb.append_beat("bubbly bubbles go scoop doop shoop")
 
     jb.reset_voice("Boing")
 

@@ -8,13 +8,11 @@ class JungleBeat
     @voice = "Bubbles"
   end
 
-  def append(node_datums)
+  def append_beat(node_datums)
     node_data = node_datums.split(" ")
     keep = []
     node_data.each  do |datum|
-      if @accepted_beats.include?("#{datum}") == true
-        keep << datum
-      end
+      keep << datum if @accepted_beats.include?("#{datum}") == true
     end
     keep.each do |keeper|
       @list.append(keeper) 
@@ -40,6 +38,9 @@ class JungleBeat
 
   def play
     `say -r #{@rate} -v #{@voice} "#{@list.to_string}"`
+    if @list.head == nil
+      p "Try these bubble beats: #{@accepted_beats.join(", ")}"
+    end
   end
 
   def all
