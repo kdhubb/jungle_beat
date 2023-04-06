@@ -12,7 +12,7 @@ class JungleBeat
     node_data = node_datums.split(" ")
     keep = []
     node_data.each  do |datum|
-      keep << datum if @accepted_beats.include?("#{datum}") == true
+      keep << datum if @accepted_beats.include?("#{datum}")
     end
     keep.each do |keeper|
       @list.append(keeper) 
